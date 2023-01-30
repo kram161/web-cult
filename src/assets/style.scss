@@ -1,0 +1,156 @@
+$grey-9f: #9F9F9F;
+$grey-b5: #B5B5B5;
+$grey-e1: #E1E1E1;
+$grey-a0: #A0A0A0;
+$brown: #343030;
+$white: #FFFFFF;
+$animation: all 0.5s ease;
+
+body{
+  margin: 0;
+}
+
+.container {
+  max-width: 1216px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.button{
+  width: fit-content;
+  color: $white;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+header{
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    &__logo{
+      cursor: pointer;
+    }
+    &__list{
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      li{
+        cursor: pointer;
+        margin: 0 0 0 48px;
+      }
+    }
+    &__search{
+      position: relative;
+      display: flex;
+      margin: 0 0 0 auto;
+      input{
+        border: 1px solid $grey-e1;
+        padding: 13px 16px;
+        font-size: 14px;
+        line-height: 150%;
+        outline: none;
+        transition: $animation;
+        width: 294px;
+        box-sizing: border-box;
+        &:focus{
+          border: 1px solid $grey-b5;
+          outline: none;
+        }
+      }
+      button{
+        font-size: 14px;
+        line-height: 150%;
+        background: $brown;
+        color: $white;
+        padding: 0 36px;
+        cursor: pointer;
+        border: none;
+      }
+    }
+    &__cart{
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin: 0 0 0 33px;
+      position: relative;
+      &-count{
+        position: absolute;
+        z-index: 1;
+        content: '';
+        top: -4px;
+        right: -14px;;
+        background: $brown;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        margin: 0;
+        span{
+          color: $white;
+          position: absolute;
+          top: 1px;
+          left: 5px;
+          z-index: 2;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  hr{
+    margin: 0;
+  }
+}
+
+
+.card{
+  display: flex;
+  flex-direction: column;
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    .card{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 278px;
+      border: 1px solid $grey-e1;
+      &-description{
+        padding: 20px 24px 24px 24px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      &-title{
+        margin: 0;
+        padding: 0 0 22px 0;
+      }
+      &-price{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 50%;
+        span,p{
+          margin: 0;
+          padding: 0;
+        }
+        span{
+          text-decoration: line-through;
+          color: $grey-a0;
+          font-size: 14px;
+          line-height: 150%;
+        }
+        p{
+          font-size: 16px;
+          line-height: 150%;
+          color: $brown;
+        }
+      }
+      &-button{
+        display: flex;
+        width: 50%;
+      }
+    }
+  }
+}
