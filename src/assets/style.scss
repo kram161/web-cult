@@ -110,13 +110,15 @@ header{
   flex-direction: column;
   &__list{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin: 0 -16px;
     .card{
       display: flex;
       flex-direction: column;
       width: 100%;
       max-width: 278px;
       border: 1px solid $grey-e1;
+      margin: 0 16px;
       &-description{
         padding: 20px 24px 24px 24px;
         display: flex;

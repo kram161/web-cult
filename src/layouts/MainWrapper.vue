@@ -21,8 +21,8 @@
           </li>
         </ul>
         <div class="header__search">
-          <input placeholder="Поиск по названию картины">
-          <button>Найти</button>
+          <input ref="inputText" placeholder="Поиск по названию картины">
+          <button @click="takeInput">Найти</button>
         </div>
         <router-link to="/" class="header__cart">
           <svg width="21" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +46,7 @@
         <h2>Картины эпохи Возрождения</h2>
         <div class="card__list">
           <cardUnit
-              v-for="product in products"
+              v-for="product in searchClick"
               :key="product.id"
               :item="product"
           />
@@ -61,11 +61,22 @@
 import cardUnit from '../components/CardUnit.vue'
 
 export default {
+  data(){
+    return{
+      search: '',
+    }
+  },
   components: {
-    cardUnit
+    cardUnit,
   },
   async mounted() {
     await this.$store.dispatch("fetchProducts");
+  },
+  methods: {
+    takeInput() {
+      const inputText = this.$refs.inputText.value;
+      this.search = inputText;
+    }
   },
   computed: {
     selectedCount() {
@@ -74,6 +85,9 @@ export default {
     products() {
       return this.$store.state.products;
     },
+    searchClick(){
+      return this.products.filter(item => item.name.indexOf(this.search) !== -1);
+    }
   }
 }
 </script>

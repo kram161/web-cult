@@ -7,6 +7,9 @@
         alt="..."
     />
     <div class="card-description">
+      <div class="loader" v-if="loaded">
+
+      </div>
       <h3 class="card-title">{{ item.name }}</h3>
       <div v-if="!sold" class="card-price">
         <span>{{ item.discount }}</span>
